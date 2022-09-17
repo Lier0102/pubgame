@@ -36,9 +36,14 @@ class Player:
         self.player_img = pygame.image.load('player2.png')
         self.x1 = 280
         self.y1 = 700
+        self.right = False
+        self.left = False
     
     def draw(self):
         self.screen.blit(self.player_img, (self.x1,self.y1))
+
+    def update(self):
+        
 
 
 def main():
@@ -49,6 +54,10 @@ def main():
             if event.type == pygame.KEYDOWN: # if q key pressed(Q)uit
                 if event.key == pygame.K_q:
                     pygame.quit()
+                if event.key == pygame.K_RIGHT:
+                    # 오른쪽 키가 눌렸다고 알려주기
+                    pl.right = True
+                    
         bg.draw() # draw the background image onto the screen
         pl.draw()
         bg.update() # scroll
