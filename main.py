@@ -43,8 +43,10 @@ class Player:
         self.screen.blit(self.player_img, (self.x1,self.y1))
 
     def update(self):
-        
-
+        if self.right == True:
+            self.x1 += 2
+        if self.left == True:
+            self.x1 -= 2
 
 def main():
     bg = Background(screen)
@@ -57,10 +59,13 @@ def main():
                 if event.key == pygame.K_RIGHT:
                     # 오른쪽 키가 눌렸다고 알려주기
                     pl.right = True
+                if event.key == pygame.K_LEFT:
+                    pl.left = True
                     
         bg.draw() # draw the background image onto the screen
         pl.draw()
         bg.update() # scroll
+        pl.update()
         pygame.display.update()
 
 main() # start the game
