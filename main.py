@@ -30,6 +30,17 @@ class Background:
         if self.y1 >= 960:
             self.y1 = -960
 
+class Player:
+    def __init__(self, screen):
+        self.screen = screen
+        self.player_img = pygame.image.load('player2.png')
+        self.x1 = 320
+        self.y1 = 700
+    
+    def draw(self):
+        self.screen.blit(self.player_img, (self.x1,self.y1))
+        
+
 def main():
     bg = Background(screen)
     while True: # main game loop
