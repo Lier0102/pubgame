@@ -24,6 +24,7 @@ def main():
                     pl.up = True
                 if event.key == pygame.K_DOWN:
                     pl.down = True
+
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
                     pl.right = False
@@ -33,7 +34,6 @@ def main():
                     pl.up = False
                 if event.key == pygame.K_DOWN:
                     pl.down = False
-            
                     
         bg.draw() # draw the background image onto the screen
         pl.draw()
