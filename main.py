@@ -45,6 +45,10 @@ def main():
     bg = Background(screen)
     pl = Player(screen)
     while True: # main game loop
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN: # if q key pressed(Q)uit
+                if event.key == pygame.K_q:
+                    pygame.quit()
         bg.draw() # draw the background image onto the screen
         pl.draw()
         bg.update() # scroll
