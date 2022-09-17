@@ -38,6 +38,8 @@ class Player:
         self.y1 = 700
         self.right = False
         self.left = False
+        self.up = False
+        self.down = False
     
     def draw(self):
         self.screen.blit(self.player_img, (self.x1,self.y1))
@@ -47,6 +49,10 @@ class Player:
             self.x1 += 2
         if self.left == True:
             self.x1 -= 2
+        if self.up == True:
+            self.y1 -= 2
+        if self.down == True:
+            self.y1 += 2
 
 def main():
     bg = Background(screen)
@@ -61,6 +67,20 @@ def main():
                     pl.right = True
                 if event.key == pygame.K_LEFT:
                     pl.left = True
+                if event.key == pygame.K_UP:
+                    pl.up = True
+                if event.key == pygame.K_DOWN:
+                    pl.down = True
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    pl.right = False
+                if event.key == pygame.K_LEFT:
+                    pl.left = False
+                if event.key == pygame.K_UP:
+                    pl.up = False
+                if event.key == pygame.K_DOWN:
+                    pl.down = False
+            
                     
         bg.draw() # draw the background image onto the screen
         pl.draw()
