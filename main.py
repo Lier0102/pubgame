@@ -23,7 +23,12 @@ class Background:
     
     def update(self):
         self.y1 += 1
-        self.y2 += 1
+        self.y2 += 1 # 동시에 화면 밑으로 내려 주다가
+
+        if self.y2 >= 960: # 화면에 끝에 닿으면
+            self.y2 = -960
+        if self.y1 >= 960:
+            self.y1 = -960
 
 def main():
     bg = Background(screen)
