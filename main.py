@@ -20,11 +20,16 @@ class Background:
     def draw(self): # draw the background image onto the screen
         self.screen.blit(self.back_img, (self.x1,self.y1)) # scroll the background image onto the screen
         self.screen.blit(self.back_img2, (self.x2,self.y2))
+    
+    def update(self):
+        self.y1 += 1
+        self.y2 += 1
 
 def main():
     bg = Background(screen)
     while True: # main game loop
         bg.draw() # draw the background image onto the screen
+        bg.update() # scroll
         pygame.display.update()
 
 main() # start the game
